@@ -1,0 +1,323 @@
+/* =========================
+   THEME GLOBAL
+========================= */
+* { box-sizing: border-box; }
+html, body, .stApp {
+  background-color: #0e0e0e !important;
+  color: #e6e6e6 !important;
+  font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  text-transform: uppercase; /* tout en majuscule */
+}
+h1, h2, h3, h4, h5, h6 {
+  color: #ffffff !important;
+  margin: 0.25rem 0 0.75rem 0;
+  text-transform: uppercase;
+}
+
+/* =========================
+   EN-TÊTE (logo BonPick centré)
+========================= */
+.page-hero {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 16px 0 10px 0;
+}
+.page-hero img {
+  max-height: 300px; /* taille du logo BonPick */
+  width: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+.navbar {
+  width: 100%;
+  background: #0e0e0e;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #222;
+  position: sticky; top: 0; z-index: 1000;
+}
+.navbar .nav-left,
+.navbar .nav-right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.navbar a {
+  color: #cfd4d9;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: background-color .15s ease, color .15s ease;
+}
+.navbar a:hover { background: #171717; color: #ffffff; }
+.navbar a.active { background: #222; color: #ffffff; }
+
+/* Logo NFL (50px) */
+.nav-nfl-logo {
+  height: 50px;
+  width: auto;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+/* =========================
+   DROPDOWN NFL
+========================= */
+.dropdown { position: relative; display: inline-block; }
+.dropdown input[type=checkbox] { display: none; }
+
+.dropdown .nfl-btn {
+  cursor: pointer;
+  display: flex; align-items: center; gap: 6px;
+  padding: 4px 6px;
+  border-radius: 6px;
+}
+.dropdown .caret {
+  width: 0; height: 0;
+  border-top: 5px solid #cfd4d9;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  margin-left: 6px;
+}
+.dropdown .menu {
+  display: none;
+  position: absolute;
+  top: 100%; left: 0;
+  background: #131313;
+  min-width: 160px;
+  border: 1px solid #222;
+  border-radius: 6px;
+  z-index: 1100;
+  flex-direction: column;
+  box-shadow: 0 12px 22px rgba(0,0,0,.35);
+}
+.dropdown .menu a {
+  padding: 10px 14px;
+  color: #cfd4d9;
+  font-size: 14px;
+  text-decoration: none;
+  display: block;
+}
+.dropdown .menu a:hover { background: #222; color: #fff; }
+.dropdown input:checked ~ .menu { display: flex; }
+
+/* =========================
+   BARRE D’OUTILS
+========================= */
+.toolsbar {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 20px;
+}
+
+/* =========================
+   CARTES MATCHS
+========================= */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(300px, 1fr)); /* 3 cartes */
+  gap: 20px;
+  padding: 16px 40px 24px;
+}
+.card {
+  position: relative; /* pour badges & tooltip */
+  background: #131313;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 12px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.35);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+.card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.team-name {
+  margin-top: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: .3px;
+  text-align: center;
+}
+.at-pill { font-weight: 700; color: #ffffff; font-size: 13px; }
+
+/* Chips (date/heure) */
+.chip {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 8px;
+  background: #222;
+  color: #ffffff;
+  font-size: 12px;
+  margin: 2px 3px;
+  font-weight: 700;
+}
+.chip.info { background: #222; color: #cfd4d9; }
+.chip.good { background: #102c60; color: #2e4fb9; }  /* bleu */
+.chip.bad  { background: #5a1a1a; color: #f87171; }
+
+/* Sélection */
+.selection-pill { margin-top: 8px; text-align: center; }
+.selection-pill .pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: #222; padding: 4px 10px; border-radius: 8px;
+}
+.selection-pill .team-pill {
+  background: #189423; color: #d1ffd6;
+  font-size: 13px; font-weight: 800;
+  padding: 2px 8px; border-radius: 6px;
+}
+.selection-pill .val { font-size: 13px; font-weight: 700; color: #e6e6e6; }
+
+/* Tableau des cotes */
+.odds-table { margin-top: 6px; }
+.odds-table table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 12px;
+}
+.odds-table th, .odds-table td {
+  padding: 6px 4px;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+.odds-table th { background: #121212; color: #ffffff; font-weight: 700; }
+.odds-table td { background: #222; color: #ffffff; font-weight: 700; }
+
+/* =========================
+   PAGES / PERFORMANCE
+========================= */
+.page-wrap { padding: 16px 20px; }
+.page-wrap .card { margin-bottom: 18px; }
+.stPlotlyChart, .stPyplot, .css-1dp5vir { background: transparent !important; }
+
+/* ===== Pastille “?” en bas-droite + tooltip (unique, sans doublon) ===== */
+.help-pill{
+  position: absolute;
+  right: 10px; bottom: 10px;
+  width: 28px; height: 28px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: #222; color: #fff; font-weight: 800; cursor: help;
+  border: 1px solid rgba(255,255,255,.08);
+  box-shadow: 0 2px 6px rgba(0,0,0,.35);
+}
+.help-pill .help-tip{
+  display: none;
+  position: absolute; bottom: 38px; right: 0; z-index: 20;
+  min-width: 260px; max-width: 400px;
+  background: #131313; color: #ffffff;
+  border: 1px solid #222; border-radius: 10px;
+  padding: 10px 12px; box-shadow: 0 12px 22px rgba(0,0,0,.35);
+  text-transform: none; /* texte explicatif lisible */
+  white-space: normal;
+}
+.help-pill:hover .help-tip, .help-pill:focus .help-tip { display: block; }
+.help-pill .help-tip::after{
+  content: "";
+  position: absolute; right: 8px; bottom: -6px;
+  width: 0; height: 0;
+  border-top: 6px solid #131313;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+}
+
+/* HOME icon actif */
+.nav-home.active { background:#171717; color:#ffffff; }
+
+/* === Ruban TOP PICKS (centré sur le haut de carte) === */
+.top-pick-ribbon{
+  position: absolute;
+  top: -10px; left: 50%;
+  transform: translateX(-50%);
+  background: #e0dd25; /* modifiable */
+  color: #181400;
+  padding: 2px 6px;
+  border-radius: 2px;
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: .3px;
+  box-shadow: 0 4px 10px rgba(0,0,0,.35);
+}
+
+/* =========================
+   HOME — CARTE D’EXPLICATION
+   (uniquement la carte texte de la page d’accueil)
+========================= */
+.home-explain {
+  margin: 10px auto 14px;      /* centrée */
+  padding: 14px 16px;
+  width: 500px;                /* ajuste la largeur ici */
+  max-width: 95vw;
+  background: #131313;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 2px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.35);
+  text-align: center;
+}
+.home-explain-title {
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #943737;
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+.home-explain-text {
+  color: #adadad;
+  line-height: 1.6;
+  font-size: 12px;
+  text-transform: none;        /* lisible, pas forcé en majuscule */
+}
+
+/* =========================
+   HOME — PODIUM (layout)
+   n’impacte pas tes cartes .card
+========================= */
+.podium-wrap {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(260px, 1fr));
+  gap: 22px;
+  align-items: end;
+  padding: 8px 40px 24px;
+}
+.podium-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.podium-col.col-1 { transform: translateY(-8px); } /* #1 un peu surélevé */
+.podium-card { width: 100%; max-width: 420px; }     /* conteneur de la carte podium */
+
+/* =========================
+   HOME — BADGES PODIUM (1/2/3)
+   change la couleur ici (jaune, argent, bronze)
+========================= */
+.podium-num {
+  border-radius: 50%;
+  width: 44px; height: 44px;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800; font-size: 16px;
+  box-shadow: 0 2px 6px rgba(0,0,0,.35);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* Couleurs du podium — modifie librement */
+.podium-num.num-1 { background: #fff018; color:#181400; } /* OR (jaune) */
+.podium-num.num-2 { background: #c0c7d1; color:#0e0e0e; } /* ARGENT */
+.podium-num.num-3 { background: #c88445; color:#0e0e0e; } /* BRONZE */

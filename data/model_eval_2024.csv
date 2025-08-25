@@ -1,0 +1,10 @@
+season,market,metric_1,value_1,metric_2,value_2,N
+2024,moneyline,logloss,0.6521,N,272.0,
+2024,spreads,mae,10.51,rmse,13.61,272.0
+2024,totals,mae,10.24,rmse,13.35,272.0
+2024,moneyline,logloss,0.6521,N,272.0,
+2024,spreads,mae,10.51,rmse,13.61,272.0
+2024,totals,mae,10.24,rmse,13.35,272.0
+2024,moneyline,logloss,0.6521,N,272.0,
+2024,spreads,mae,10.51,rmse,13.61,272.0
+2024,totals,mae,10.24,rmse,13.35,272.0
